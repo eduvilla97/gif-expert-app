@@ -1,16 +1,17 @@
 import { useState } from "react";
 
 type AddCategoryProps = {
-  setCategory: React.Dispatch<React.SetStateAction<string[]>>;
+  onNewCategory: (category: string) => void;
 };
 
-export const AddCategory = ({ setCategory }: AddCategoryProps) => {
+export const AddCategory = ({ onNewCategory }: AddCategoryProps) => {
   const [inputValue, setInputValue] = useState("");
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (inputValue.trim().length < 1) return;
-    setCategory((categories) => [...categories, inputValue]);
+    const inputClean = inputValue.trim();
+    if (inputClean.length < 1) return;
+    onNewCategory(inputClean);
     setInputValue("");
   };
 
