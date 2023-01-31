@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import { GifExpertApp } from "./Components/gif/GifExpertApp";
+import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode></React.StrictMode>
+  <React.StrictMode>
+    <GifExpertApp />
+  </React.StrictMode>
 );
